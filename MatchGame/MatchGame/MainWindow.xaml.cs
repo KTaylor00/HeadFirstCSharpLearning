@@ -22,27 +22,36 @@ namespace MatchGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Creates a timer
         DispatcherTimer timer = new DispatcherTimer();
+        //creates an empty integer variable
         int tenthsOfSecondsElasped;
+        //creates an empty integer variable
         int matchesFound;
         public MainWindow()
         {
             InitializeComponent();
-
+            //Sets the timer equal to a timeSpan that starts from 1 second
             timer.Interval = TimeSpan.FromSeconds(1);
+            //Sets the timer.Tick and makes it equal to and joined to the Timer_Tick method
             timer.Tick += Timer_Tick;
+            //Calls the SetUpGame method
             SetUpGame();
 
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            //Increases the variable by 1
             tenthsOfSecondsElasped++;
+            //Makes the textBlock = to the tenthsOfSecondsElasped variable and converts it to a string.
             timeTextBlock.Text = (tenthsOfSecondsElasped).ToString("0s");
             if (matchesFound == 8)
             {
+                //Stops the timer
                 timer.Stop();
                 //timeTextBlock.Text = timeTextBlock.Text + " - Play again?";
+                //Shows the timer when all the matches are done and adds a new text to it to play again.
                 timeTextBlock.Text += " - Play again?";
                 mainGrid.Background = new SolidColorBrush(Colors.SkyBlue);
                 encouragingText.Visibility = Visibility.Visible;
@@ -78,8 +87,11 @@ namespace MatchGame
             }
             encouragingText.Visibility = Visibility.Hidden;
 
+            //Starts the timer
             timer.Start();
+            //Sets the variable to 0
             tenthsOfSecondsElasped = 0;
+            //Sets the variable to 0
             matchesFound = 0;
         }
 
@@ -108,8 +120,10 @@ namespace MatchGame
             }
         }
 
+        //Makes the timer and play again text clickable. Then resets the game when the play again text has been selected
         private void TimeTextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             if (matchesFound == 8)
             {
                 SetUpGame();
