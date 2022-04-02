@@ -28,6 +28,8 @@ namespace MatchGame
         int tenthsOfSecondsElasped;
         //creates an empty integer variable
         int matchesFound;
+
+        int bestTime = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace MatchGame
         {
             //Increases the variable by 1
             tenthsOfSecondsElasped++;
+            bestTime = tenthsOfSecondsElasped;
             //Makes the textBlock = to the tenthsOfSecondsElasped variable and converts it to a string.
             timeTextBlock.Text = (tenthsOfSecondsElasped).ToString("0s");
             if (matchesFound == 8)
@@ -54,7 +57,8 @@ namespace MatchGame
                 //Shows the timer when all the matches are done and adds a new text to it to play again.
                 timeTextBlock.Text += " - Play again?";
                 mainGrid.Background = new SolidColorBrush(Colors.SkyBlue);
-                encouragingText.Visibility = Visibility.Visible;
+                bestTimeText.Visibility = Visibility.Visible;
+                bestTimeText.Text += bestTime.ToString($"Best Time - {bestTime}");
             }
         }
 
@@ -76,7 +80,7 @@ namespace MatchGame
 
             foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
             {
-                if (textBlock.Name != "timeTextBlock" && textBlock.Name != "encouragingText")
+                if (textBlock.Name != "timeTextBlock" && textBlock.Name != "bestTimeText")
                 {
                     textBlock.Visibility = Visibility.Visible;
                     int index = random.Next(animalEmoji.Count);
@@ -85,9 +89,8 @@ namespace MatchGame
                     animalEmoji.RemoveAt(index);
                 }
             }
-            encouragingText.Visibility = Visibility.Hidden;
+            bestTimeText.Visibility = Visibility.Hidden;
 
-            //Starts the timer
             timer.Start();
             //Sets the variable to 0
             tenthsOfSecondsElasped = 0;
@@ -100,12 +103,14 @@ namespace MatchGame
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
             TextBlock textBlock = sender as TextBlock;
             if (findingMatch == false)
             {
                 textBlock.Visibility = Visibility.Hidden;
                 lastTextBlockClicked = textBlock;
                 findingMatch = true;
+
             }
             else if (textBlock.Text == lastTextBlockClicked.Text)
             {
@@ -128,7 +133,8 @@ namespace MatchGame
             {
                 SetUpGame();
                 mainGrid.Background = new SolidColorBrush(Colors.White);
-                encouragingText.Visibility = Visibility.Hidden;
+                bestTimeText.Visibility = Visibility.Hidden;
+                bestTimeText.Text = "";
             }
         }
     }
