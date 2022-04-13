@@ -13,10 +13,17 @@ namespace PickRandomCards
             {
                 // this block is executed if line COULD be converted to an int
                 // value that's stored in a new variable called numberOfCards
+                string[] results = CardPicker.PickSomeCards(numberOfCards);
+
+                foreach (string card in results)
+                {
+                    Console.WriteLine(card);
+                }
             }
             else
             {
                 // this block is executed if line COULD NOT be converted to an int
+                Console.WriteLine("Please enter a vaild number.");
             }
         }
     }
