@@ -6,6 +6,12 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            int height = 179;
+            int width = 83;
+            int area = Multiply(height, width);
+
+            Console.WriteLine(area);
+
             TryAnIf();
             TrySomeLoops();
             TryAnIfElse();
@@ -145,5 +151,13 @@ namespace ConsoleApp
             //while (true)
             //{ int i = 1; }
         }
+
+        static int Multiply(int factor1, int factor2)
+        {
+            int product = factor1 * factor2;
+            return product;
+        }
+
+
     }
 }
