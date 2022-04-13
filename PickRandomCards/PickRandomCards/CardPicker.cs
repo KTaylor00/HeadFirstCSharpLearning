@@ -8,6 +8,7 @@ namespace PickRandomCards
 {
     internal class CardPicker
     {
+        // Used to generate random numbers in the RandomSuit method and Random Value method.
         static Random random = new Random();
         public static string[] PickSomeCards(int numberOfCards)
         {
