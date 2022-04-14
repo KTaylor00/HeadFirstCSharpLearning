@@ -17,6 +17,17 @@ namespace ConsoleApp
             TryAnIfElse();
             OperatorExamples();
             LoopExamples();
+
+            // From instances uses fields to keep track of things(Sharpen your pencil) part of Chapter 3.
+            Random random = new();
+            double[] randomDoubles = new double[20];
+
+            for (int i = 0; i < 20; i++)
+            {
+                double values = random.NextDouble();
+                randomDoubles[i] = values;
+                Console.WriteLine(values);
+            }
         }
 
         private static void TryAnIf()
