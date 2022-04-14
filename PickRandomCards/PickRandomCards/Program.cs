@@ -13,6 +13,8 @@ namespace PickRandomCards
             {
                 // this block is executed if line COULD be converted to an int
                 // value that's stored in a new variable called numberOfCards
+
+                // I can just call the method like this - CardPicker.PickSomeCards(numberOfCards);
                 string[] results = CardPicker.PickSomeCards(numberOfCards);
 
                 foreach (string card in results)
