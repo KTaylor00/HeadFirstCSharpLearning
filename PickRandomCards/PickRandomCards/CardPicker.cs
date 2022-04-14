@@ -12,6 +12,9 @@ namespace PickRandomCards
         static Random random = new Random();
         // When you use the static keyword to declare a field or method in a class, you don’t need 
         // an instance(using the new keyword) of that class to access it. 
+        // Static methods are just like object 
+        // methods: they can take arguments, they can return values, and they live in classes.
+
         public static string[] PickSomeCards(int numberOfCards)
         {
             string[] pickedCards = new string[numberOfCards];
