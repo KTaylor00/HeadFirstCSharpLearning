@@ -10,7 +10,8 @@ namespace PickRandomCards
     {
         // Used to generate random numbers in the RandomSuit method and Random Value method.
         static Random random = new Random();
-        // the static keyword allows you to not have to create an instance of that class to access the below method.
+        // When you use the static keyword to declare a field or method in a class, you don’t need 
+        // an instance(using the new keyword) of that class to access it. 
         public static string[] PickSomeCards(int numberOfCards)
         {
             string[] pickedCards = new string[numberOfCards];
