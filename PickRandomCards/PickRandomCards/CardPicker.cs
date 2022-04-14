@@ -11,13 +11,20 @@ namespace PickRandomCards
         // When a field is static there’s only one copy of it, and it’s shared by all instances.
         // So if you created multiple instances of CardPicker, they would all share the same random
         // field.
-        // Used to generate random numbers in the RandomSuit method and Random Value method.
+        /// <summary>
+        /// Generates random numbers to be used by CardPicker methods
+        /// </summary>
         static Random random = new Random();
 
         // When you use the static keyword to declare a field or method in a class, you don’t need 
         // an instance(using the new keyword) of that class to access it. 
         // Static methods are just like object 
         // methods: they can take arguments, they can return values, and they live in classes.
+        /// <summary>
+        /// Picks a number of cards and returns them.
+        /// </summary>
+        /// <param name="numberOfCards">The number of cards to pick.</param>
+        /// <returns>An array of strings that contain the card names.</returns>
         public static string[] PickSomeCards(int numberOfCards)
         {
             string[] pickedCards = new string[numberOfCards];
