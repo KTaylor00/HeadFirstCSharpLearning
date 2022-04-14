@@ -18,7 +18,7 @@ namespace ConsoleApp
             OperatorExamples();
             LoopExamples();
 
-            // From instances uses fields to keep track of things(Sharpen your pencil) part of Chapter 3.
+            // From a better solution for Anna(Sharpen your pencil) part of Chapter 3.
             Random random = new();
             double[] randomDoubles = new double[20];
 
