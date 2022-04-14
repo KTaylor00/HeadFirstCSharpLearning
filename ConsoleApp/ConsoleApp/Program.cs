@@ -12,12 +12,13 @@ namespace ConsoleApp
 
             Console.WriteLine(area);
 
+            //----------------------------------------------------------------------------------//
             TryAnIf();
             TrySomeLoops();
             TryAnIfElse();
             OperatorExamples();
             LoopExamples();
-
+            //----------------------------------------------------------------------------------//
             // From a better solution for Anna(Sharpen your pencil) part of Chapter 3.
             Random random = new();
             double[] randomDoubles = new double[20];
@@ -28,6 +29,24 @@ namespace ConsoleApp
                 randomDoubles[i] = values;
                 Console.WriteLine(values);
             }
+            //----------------------------------------------------------------------------------//
+            // From Chapter 3 (Sharpen Your Pencil Exercise) - An instance uses fields to keep track of things
+            Clown oneClown = new Clown();
+            oneClown.Name = "Boffo";
+            oneClown.Height = 14;
+            oneClown.TalkAboutYourself();
+
+            Clown anotherClown = new Clown();
+            anotherClown.Name = "Biff";
+            anotherClown.Height = 16;
+
+            Clown clown3 = new Clown();
+            clown3.Name = anotherClown.Name;
+            clown3.Height = oneClown.Height - 3;
+            clown3.TalkAboutYourself();
+
+            anotherClown.Height *= 2;
+            anotherClown.TalkAboutYourself();
         }
 
         private static void TryAnIf()
@@ -168,7 +187,5 @@ namespace ConsoleApp
             int product = factor1 * factor2;
             return product;
         }
-
-
     }
 }
