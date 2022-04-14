@@ -52,7 +52,50 @@ namespace ConsoleApp
             anotherClown.Height *= 2;
             anotherClown.TalkAboutYourself();
             //----------------------------------------------------------------------------------//
-            // An example instance from Chapter 3 (Build a class to work with some guys).
+            // An example instance from Chapter 3 (Build a class to work with some guys and There's an easier way to initialize objects with C#).
+            Guy joe = new Guy() { Cash = 50, Name = "Joe" };
+            Guy bob = new Guy() { Cash = 100, Name = "Bob" };
+
+            while (joe.Cash > 1 || bob.Cash > 1)
+            {
+                int amount;
+                joe.WriteMyInfo();
+                bob.WriteMyInfo();
+                Console.Write("Enter an amount: ");
+                string input = Console.ReadLine();
+                if (input == "")
+                {
+                    return;
+                }
+                else
+                {
+                    amount = Int32.Parse(input);
+                }
+
+                Console.Write("Who should give the cash: ");
+                string name = Console.ReadLine().ToLower();
+                if (name == "joe")
+                {
+                    joe.GiveCash(amount);
+                    if (joe.Cash == amount)
+                    {
+                        bob.ReceiveCash(amount);
+                    }
+                }
+                if (name == "bob")
+                {
+                    bob.GiveCash(amount);
+                    if (bob.Cash == amount)
+                    {
+                        joe.ReceiveCash(amount);
+                    }
+
+                }
+
+            }
+
+
+
         }
 
         private static void TryAnIf()
