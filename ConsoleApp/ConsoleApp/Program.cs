@@ -51,6 +51,8 @@ namespace ConsoleApp
             // Notic how there's no "new" statement here -- we're not creating a new object, just modifying one already in memory:
             anotherClown.Height *= 2;
             anotherClown.TalkAboutYourself();
+            //----------------------------------------------------------------------------------//
+            // An example instance from Chapter 3 (Build a class to work with some guys).
         }
 
         private static void TryAnIf()
