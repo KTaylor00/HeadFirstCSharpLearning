@@ -23,6 +23,7 @@ namespace PickRandomCards
 
                 foreach (string card in results)
                 {
+                    // this block is executed if line COULD be converted to an int
                     Console.WriteLine(card);
                 }
             }
