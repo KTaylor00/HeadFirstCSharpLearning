@@ -13,11 +13,14 @@ namespace ConsoleApp
             Console.WriteLine(area);
 
             //----------------------------------------------------------------------------------//
+            //----------------------------------------------------------------------------------//
             TryAnIf();
             TrySomeLoops();
             TryAnIfElse();
             OperatorExamples();
             LoopExamples();
+
+            //----------------------------------------------------------------------------------//
             //----------------------------------------------------------------------------------//
             // From a better solution for Anna(Sharpen your pencil) part of Chapter 3.
             Random random = new();
@@ -29,6 +32,8 @@ namespace ConsoleApp
                 randomDoubles[i] = values;
                 Console.WriteLine(values);
             }
+
+            //----------------------------------------------------------------------------------//
             //----------------------------------------------------------------------------------//
             // From Chapter 3 (Sharpen Your Pencil Exercise) - An instance uses fields to keep track of things
             // These statements create an instance of Clown and then set its fields:
@@ -51,51 +56,90 @@ namespace ConsoleApp
             // Notic how there's no "new" statement here -- we're not creating a new object, just modifying one already in memory:
             anotherClown.Height *= 2;
             anotherClown.TalkAboutYourself();
+
+            //----------------------------------------------------------------------------------//
             //----------------------------------------------------------------------------------//
             // An example instance from Chapter 3 (Build a class to work with some guys and There's an easier way to initialize objects with C#).
+
+            // This is their solution to the exercise:
             Guy joe = new Guy() { Cash = 50, Name = "Joe" };
             Guy bob = new Guy() { Cash = 100, Name = "Bob" };
 
-            while (joe.Cash > 1 || bob.Cash > 1)
+            while (true)
             {
-                int amount;
                 joe.WriteMyInfo();
                 bob.WriteMyInfo();
+
                 Console.Write("Enter an amount: ");
-                string input = Console.ReadLine();
-                if (input == "")
-                {
+                string howMuch = Console.ReadLine();
+                if (howMuch == "")
                     return;
+                if (int.TryParse(howMuch, out int amount))
+                {
+                    Console.Write("Who should give the cash: ");
+                    string whichGuy = Console.ReadLine();
+                    if (whichGuy == "Joe")
+                    {
+                        joe.GiveCash(amount);
+                        bob.ReceiveCash(amount);
+                    }
+                    else if (whichGuy == "Bob")
+                    {
+                        bob.GiveCash(amount);
+                        joe.ReceiveCash(amount);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter 'Joe' or 'Bob'");
+                    }
                 }
                 else
                 {
-                    amount = Int32.Parse(input);
+                    Console.WriteLine("Please enter an amount (or a blank line to exit).");
                 }
-
-                Console.Write("Who should give the cash: ");
-                string name = Console.ReadLine().ToLower();
-                if (name == "joe")
-                {
-                    joe.GiveCash(amount);
-                    if (joe.Cash == amount)
-                    {
-                        bob.ReceiveCash(amount);
-                    }
-                }
-                if (name == "bob")
-                {
-                    bob.GiveCash(amount);
-                    if (bob.Cash == amount)
-                    {
-                        joe.ReceiveCash(amount);
-                    }
-
-                }
-
             }
 
+            // This was my solution to the exercise:
+            //Guy joe = new Guy() { Cash = 50, Name = "Joe" };
+            //Guy bob = new Guy() { Cash = 100, Name = "Bob" };
 
+            //while (joe.Cash > 1 || bob.Cash > 1)
+            //{
+            //    int amount;
+            //    joe.WriteMyInfo();
+            //    bob.WriteMyInfo();
+            //    Console.Write("Enter an amount: ");
+            //    string input = Console.ReadLine();
+            //    if (input == "")
+            //    {
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        amount = Int32.Parse(input);
+            //    }
 
+            //    Console.Write("Who should give the cash: ");
+            //    string name = Console.ReadLine().ToLower();
+            //    if (name == "joe")
+            //    {
+            //        joe.GiveCash(amount);
+            //        if (joe.Cash == amount)
+            //        {
+            //            bob.ReceiveCash(amount);
+            //        }
+            //    }
+            //    if (name == "bob")
+            //    {
+            //        bob.GiveCash(amount);
+            //        if (bob.Cash == amount)
+            //        {
+            //            joe.ReceiveCash(amount);
+            //        }
+            //    }
+            //}
+            //----------------------------------------------------------------------------------//
+            //----------------------------------------------------------------------------------//
         }
 
         private static void TryAnIf()
