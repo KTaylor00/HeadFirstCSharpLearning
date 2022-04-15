@@ -8,7 +8,6 @@ namespace ConsoleAppBettingGame
         {
             double odds = .75;
             Random random = new Random();
-            double odds = 0.75;
 
             Better billy = new Better { Name = "Billy", Cash = 100 };
             Better bob = new Better { Name = "Bob", Cash = 100 };
@@ -16,7 +15,10 @@ namespace ConsoleAppBettingGame
             Console.WriteLine($"Welcome to the casino. The odds are {odds}");
             while (billy.Cash > 0 && bob.Cash > 0)
             {
-                player.WriteMyInfo();
+                billy.WriteMyInfo();
+                bob.WriteMyInfo();
+                Console.Write("Who is betting: ");
+                string better = Console.ReadLine();
                 Console.Write("How much do you want to bet: ");
                 string howMuch = Console.ReadLine();
                 if (int.TryParse(howMuch, out int amount))
