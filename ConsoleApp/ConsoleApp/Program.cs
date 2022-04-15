@@ -80,13 +80,13 @@ namespace ConsoleApp
                     string whichGuy = Console.ReadLine();
                     if (whichGuy == "Joe")
                     {
-                        joe.GiveCash(amount);
-                        bob.ReceiveCash(amount);
+                        int cashGiven = joe.GiveCash(amount);
+                        bob.ReceiveCash(cashGiven);
                     }
                     else if (whichGuy == "Bob")
                     {
-                        bob.GiveCash(amount);
-                        joe.ReceiveCash(amount);
+                        int cashGiven = bob.GiveCash(amount);
+                        joe.ReceiveCash(cashGiven);
                     }
                     else
                     {
