@@ -18,12 +18,12 @@ namespace ConsoleAppBettingGame
                 billy.WriteMyInfo();
                 bob.WriteMyInfo();
                 Console.Write("Who is betting: ");
-                string better = Console.ReadLine();
+                string better = Console.ReadLine().ToLower();
                 Console.Write("How much do you want to bet: ");
                 string howMuch = Console.ReadLine();
                 if (int.TryParse(howMuch, out int amount))
                 {
-                    if (better == "Billy")
+                    if (better == "billy")
                     {
                         int pot = billy.GiveCash(amount) * 2;
 
@@ -42,7 +42,8 @@ namespace ConsoleAppBettingGame
                         }
 
                     }
-                    if (better == "Bob")
+
+                    if (better == "bob")
                     {
                         int pot = bob.GiveCash(amount) * 2;
 
