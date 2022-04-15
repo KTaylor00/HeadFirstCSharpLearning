@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp
+namespace ConsoleAppBettingGame
 {
     // An example class from Chapter 3 (Build a class to work with some guys) To keep track of how much money Joe and Bob have, because they lend each other money all the time.
-    internal class Guy
+    internal class Better
     {
         public string Name;
         public int Cash;
