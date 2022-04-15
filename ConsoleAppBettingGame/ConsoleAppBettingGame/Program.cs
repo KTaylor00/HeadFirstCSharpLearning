@@ -8,37 +8,64 @@ namespace ConsoleAppBettingGame
         {
             double odds = .75;
             Random random = new Random();
-            Guy player = new Guy() { Cash = 100, Name = "The player" };
-            Console.WriteLine("Welcome to the casino. The odds are " + odds);
-            while (player.Cash > 0)
+            double odds = 0.75;
+
+            Better billy = new Better { Name = "Billy", Cash = 100 };
+            Better bob = new Better { Name = "Bob", Cash = 100 };
+
+            Console.WriteLine($"Welcome to the casino. The odds are {odds}");
+            while (billy.Cash > 0 && bob.Cash > 0)
             {
                 player.WriteMyInfo();
                 Console.Write("How much do you want to bet: ");
                 string howMuch = Console.ReadLine();
                 if (int.TryParse(howMuch, out int amount))
                 {
-                    int pot = player.GiveCash(amount) * 2;
-                    if (pot > 0)
+                    if (better == "Billy")
                     {
-                        if (random.NextDouble() > odds)
+                        int pot = billy.GiveCash(amount) * 2;
+
+                        if (pot > 0)
                         {
-                            int winnings = pot;
-                            Console.WriteLine("You win " + winnings);
-                            player.ReceiveCash(winnings);
+                            if (random.NextDouble() > odds)
+                            {
+                                int winnings = pot;
+                                Console.WriteLine($"You win {winnings}");
+                                billy.ReceiveCash(winnings);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Bad luck, you lose.");
+                            }
                         }
-                        else
+
+                    }
+                    if (better == "Bob")
+                    {
+                        int pot = bob.GiveCash(amount) * 2;
+
+                        if (pot > 0)
                         {
-                            Console.WriteLine("Bad luck, you lose.");
+                            if (random.NextDouble() > odds)
+                            {
+                                int winnings = pot;
+                                Console.WriteLine($"You win {winnings}");
+                                bob.ReceiveCash(winnings);
+                            }
+                            else
+                            {
+                                Console.WriteLine("Bad luck, you lose.");
+                            }
                         }
+
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid number.");
+                    Console.WriteLine("Please enter a valid number");
                 }
             }
-            Console.WriteLine("The house always wins.");
+            Console.WriteLine("The house always wins!");
         }
     }
-
 }
