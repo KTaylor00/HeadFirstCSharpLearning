@@ -54,7 +54,6 @@ namespace ConsoleAppBettingGame
             else
             {
                 Cash += amount;
-
             }
         }
     }

@@ -6,13 +6,19 @@ namespace AbilityScoreTester
     {
         static void Main(string[] args)
         {
+            if (0.1 + 0.2 == 0.30000000000000004)
+                Console.WriteLine("They're equal");
+            else
+                Console.WriteLine("They aren't equal");
+
+
             AbilityScoreCalculator calculator = new AbilityScoreCalculator();
             while (true)
             {
                 calculator.RollResult = ReadInt(calculator.RollResult, "Starting 4d6 roll");
-                calculator.RollResult = ReadDouble(calculator.RollResult, "Divide by");
-                calculator.RollResult = ReadInt(calculator.AddAmount, "Add amount");
-                calculator.RollResult = ReadInt(calculator.Minimum, "Minimum");
+                calculator.DivideBy = ReadDouble(calculator.DivideBy, "Divide by");
+                calculator.AddAmount = ReadInt(calculator.AddAmount, "Add amount");
+                calculator.Minimum = ReadInt(calculator.Minimum, "Minimum");
                 calculator.CalculateAbilityScore();
                 Console.WriteLine("Calculated ability score: " + calculator.Score);
                 Console.WriteLine("Press Q to quit, any other key to continue");
@@ -28,17 +34,19 @@ namespace AbilityScoreTester
         /// <param name="lastUsedValue">The default value</param>
         /// <param name="prompt">Prompt to print to the console.</param>
         /// <returns>The double value read, or the default value if unable to parse</returns>
-        private static int ReadDouble(double lastUsedValue, string prompt)
+        private static double ReadDouble(double lastUsedValue, string prompt)
         {
             Console.Write($"{prompt} [{lastUsedValue}]: ");
-            string value = Console.ReadLine();
-            if (double.TryParse(value, out lastUsedValue))
+            string line = Console.ReadLine();
+            if (double.TryParse(line, out double value))
             {
-                Console.WriteLine($"  using value" + value);
+                Console.WriteLine($"  using value " + value);
+                return value;
             }
             else
             {
-                Console.WriteLine($"  using default value" + lastUsedValue);
+                Console.WriteLine($"  using default value " + lastUsedValue);
+                return lastUsedValue;
             }
         }
 
@@ -51,14 +59,16 @@ namespace AbilityScoreTester
         private static int ReadInt(int lastUsedValue, string prompt)
         {
             Console.Write($"{prompt} [{lastUsedValue}]: ");
-            string value = Console.ReadLine();
-            if (int.TryParse(value, out lastUsedValue))
+            string line = Console.ReadLine();
+            if (int.TryParse(line, out int value))
             {
-                Console.WriteLine($"  using value" + value);
+                Console.WriteLine($"  using value " + value);
+                return value;
             }
             else
             {
-                Console.WriteLine($"  using default value" + lastUsedValue);
+                Console.WriteLine($"  using default value " + lastUsedValue);
+                return lastUsedValue;
             }
         }
     }

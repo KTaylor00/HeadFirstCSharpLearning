@@ -6,7 +6,7 @@ namespace ConsoleAppBettingGame
     {
         static void Main(string[] args)
         {
-            double odds = .75;
+            double odds = .20;
             Random random = new Random();
 
             Better billy = new Better { Name = "Billy", Cash = 100 };
@@ -21,11 +21,11 @@ namespace ConsoleAppBettingGame
                 string better = Console.ReadLine().ToLower();
                 Console.Write("How much do you want to bet: ");
                 string howMuch = Console.ReadLine();
-                if (int.TryParse(howMuch, out int amount))
+                if (int.TryParse(howMuch, out int amountGiven))
                 {
                     if (better == "billy")
                     {
-                        int pot = billy.GiveCash(amount) * 2;
+                        int pot = billy.GiveCash(amountGiven) * 2;
 
                         if (pot > 0)
                         {
@@ -45,7 +45,7 @@ namespace ConsoleAppBettingGame
 
                     if (better == "bob")
                     {
-                        int pot = bob.GiveCash(amount) * 2;
+                        int pot = bob.GiveCash(amountGiven) * 2;
 
                         if (pot > 0)
                         {
