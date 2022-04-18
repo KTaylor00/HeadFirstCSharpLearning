@@ -6,6 +6,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine(Convert.ToString(50, 2));
+
             int height = 179;
             int width = 83;
             int area = Multiply(height, width);
