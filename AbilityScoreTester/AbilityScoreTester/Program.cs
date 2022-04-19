@@ -6,10 +6,7 @@ namespace AbilityScoreTester
     {
         static void Main(string[] args)
         {
-            if (0.1 + 0.2 == 0.30000000000000004)
-                Console.WriteLine("They're equal");
-            else
-                Console.WriteLine("They aren't equal");
+
 
 
             AbilityScoreCalculator calculator = new AbilityScoreCalculator();

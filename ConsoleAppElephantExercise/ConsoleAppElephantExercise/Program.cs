@@ -9,7 +9,7 @@ namespace ConsoleAppElephantExercise
             Elephant lloyd = new Elephant() { Name = "Lloyd", EarSize = 40 };
             Elephant lucinda = new Elephant() { Name = "Lucinda", EarSize = 33 };
 
-            Console.WriteLine("Press 1 for Lloyd, 2 for Lucinda, 3 to swap");
+            Console.WriteLine("Press 1 for Lloyd, 2 for Lucinda, 3 to swap, 4 remove the first object, 5 to speak to");
             while (true)
             {
                 char keyChar = Console.ReadKey(true).KeyChar;
@@ -32,6 +32,16 @@ namespace ConsoleAppElephantExercise
                     holder = lloyd;
                     lloyd = lucinda;
                     lucinda = holder;
+                }
+                else if (keyChar == '4')
+                {
+                    lloyd = lucinda;
+                    lloyd.EarSize = 4321;
+                    lloyd.WhoAmI();
+                }
+                else if (keyChar == '5')
+                {
+                    lucinda.SpeakTo(lloyd, "Hi Lloyd!");
                 }
                 else
                 {
