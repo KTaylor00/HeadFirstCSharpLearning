@@ -1,3 +1,37 @@
 ﻿@page "/"
 
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="row">
+                <h3>How many cards should I pick?</h3>
+                <div class="row mt-5">
+                    <input type="range" class="col-2 form-control-range" min="1" max="5" @bind="NumberOfCards" />
+                </div>
+                <div class="col-2">@NumberOfCards</div>
+                <div class="row mt-5">
+                    <button type="button" class="btn btn-primary" @onclick="UpdateCards">Pick some cards</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <ul class="list-group">
+                @foreach(var card in PickedCards)
+                {
+                    <li class="list-group-item">@card</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
 
+@code
+{
+    int NumberOfCards = 5;
+    string[] PickedCards = new string[0];
+
+    private void UpdateCards()
+    {
+        PickedCards = CardPicker.PickSomeCards(NumberOfCards);
+    }
+}
