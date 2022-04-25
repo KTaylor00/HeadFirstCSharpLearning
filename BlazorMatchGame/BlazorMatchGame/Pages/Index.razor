@@ -31,6 +31,9 @@
     <div class="row">
         <h2 class="mt-4">Time: @timeDisplay</h2>
     </div>
+    <div class="row">
+        <h2 class="mt-4">Best Time: @bestTime</h2>
+    </div>
 </div>
 
 @code {
@@ -51,6 +54,7 @@
     Timer timer;
     int tenthsOfSecondsElapsed = 0;
     string timeDisplay;
+    string bestTime;
 
     protected override void OnInitialized()
     {
@@ -94,10 +98,8 @@
             {
                 timer.Stop();
                 timeDisplay += " - Play Again?";
-
                 SetUpGame();
             }
-
         }
         else
         {
@@ -113,6 +115,7 @@
         {
             tenthsOfSecondsElapsed++;
             timeDisplay = (tenthsOfSecondsElapsed / 10F).ToString("0.0s");
+            
             StateHasChanged();
         });
     }
