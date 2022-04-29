@@ -9,15 +9,15 @@ namespace DamageCalculatorUI
 {
     internal class SwordDamage
     {
-        public const int BASE_DAMAGE = 3;
-        public const int FLAME_DAMAGE = 2;
+        private const int BASE_DAMAGE = 3;
+        private const int FLAME_DAMAGE = 2;
 
         public int Roll;
-        public decimal MagicMultiplier = 1M;
-        public int FlamingDamage = 0;
+        private decimal MagicMultiplier = 1M;
+        private int FlamingDamage = 0;
         public int Damage;
 
-        public void CalculateDamage()
+        private void CalculateDamage()
         {
             Damage = (int)(Roll * MagicMultiplier) + BASE_DAMAGE + FlamingDamage;
             Debug.WriteLine($"CalculateDamage finished: {Damage} (roll: {Roll})");
