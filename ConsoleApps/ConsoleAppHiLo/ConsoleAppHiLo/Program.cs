@@ -6,12 +6,12 @@ namespace ConsoleAppHiLo
     {
         static void Main(string[] args)
         {
-            // Every instance of Random initialized with the same seed will generate the dame squence of pseudo-random numbers.
-            //HiLoGame.Random = new Random(1);
-            //Random seededRandom = new Random(1);
-            //Console.Write("The first 11 numbers will be: ");
-            //for (int i = 0; i < 10; i++)
-            //    Console.Write($"{seededRandom.Next(1, HiLoGame.MAXIMUM + 1)}");
+            //Every instance of Random initialized with the same seed will generate the dame squence of pseudo-random numbers.
+            HiLoGame.Random = new Random(1);
+            Random seededRandom = new Random(1);
+            Console.Write("The first 11 numbers will be: ");
+            for (int i = 0; i < 10; i++)
+                Console.Write($"{seededRandom.Next(1, HiLoGame.MAXIMUM + 1)}");
 
 
             Console.WriteLine("Welcome to HiLo.");
