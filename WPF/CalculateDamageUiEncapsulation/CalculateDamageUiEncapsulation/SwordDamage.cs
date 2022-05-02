@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppDamageCalculatorEncapsulation
+namespace CalculateDamageUiEncapsulation
 {
     internal class SwordDamage
     {
@@ -15,19 +16,18 @@ namespace ConsoleAppDamageCalculatorEncapsulation
         /// Contains the calculated damage
         /// </summary>
         public int Damage { get; private set; }
+
         private int roll;
         private bool flaming;
         private bool magic;
-
 
         /// <summary>
         /// Sets or gets the 3d6 roll
         /// </summary>
         public int Roll
         {
-            get => roll;
+            get { return roll; }
             set { roll = value; CalculateDamage(); }
-
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace ConsoleAppDamageCalculatorEncapsulation
         /// </summary>
         public bool Flaming
         {
-            get => flaming;
+            get { return flaming; }
             set { flaming = value; CalculateDamage(); }
         }
 
@@ -44,7 +44,7 @@ namespace ConsoleAppDamageCalculatorEncapsulation
         /// </summary>
         public bool Magic
         {
-            get => magic;
+            get { return magic; }
             set { magic = value; CalculateDamage(); }
         }
 
@@ -61,6 +61,7 @@ namespace ConsoleAppDamageCalculatorEncapsulation
             Damage = (int)(Roll * magicMultiplier) + BASE_DAMAGE;
             if (flaming)
                 Damage += FLAME_DAMAGE;
+            Debug.WriteLine($"CalculateDamage finished: {Damage} (roll: {Roll})");
         }
 
         /// <summary>
@@ -72,7 +73,5 @@ namespace ConsoleAppDamageCalculatorEncapsulation
             this.roll = roll;
             CalculateDamage();
         }
-
-
     }
 }

@@ -13,21 +13,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DamageCalculatorUI
+namespace CalculateDamageUiEncapsulation
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        SwordDamage swordDamage = new SwordDamage();
+
         Random random = new Random();
+        SwordDamage swordDamage;
 
         public MainWindow()
         {
             InitializeComponent();
-            swordDamage.SetMagic(false);
-            swordDamage.SetFlaming(false);
+            swordDamage = new SwordDamage(random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7));
+            DisplayDamage();
         }
 
         public void RollDice()
@@ -43,22 +44,22 @@ namespace DamageCalculatorUI
 
         private void flaming_Checked(object sender, RoutedEventArgs e)
         {
-            swordDamage.SetFlaming(true);
+            swordDamage.Flaming = true;
         }
 
         private void flaming_Unchecked(object sender, RoutedEventArgs e)
         {
-            swordDamage.SetFlaming(false);
+            swordDamage.Flaming = false;
         }
 
         private void magic_Checked(object sender, RoutedEventArgs e)
         {
-            swordDamage.SetMagic(true);
+            swordDamage.Magic = true;
         }
 
         private void magic_Unchecked(object sender, RoutedEventArgs e)
         {
-            swordDamage.SetMagic(false);
+            swordDamage.Magic = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
