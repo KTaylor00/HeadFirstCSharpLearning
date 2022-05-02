@@ -8,7 +8,7 @@ namespace ConsoleAppPaintballGun
 {
     internal class PaintballGun
     {
-        public const int MAGAZINE_SIZE = 16;
+        public int MagazineSize { get; private set; }
 
         private int balls;
         public int BallsLoaded { get; private set; }
@@ -29,8 +29,8 @@ namespace ConsoleAppPaintballGun
 
         public void Reload()
         {
-            if (balls < MAGAZINE_SIZE)
-                BallsLoaded = MAGAZINE_SIZE;
+            if (balls < MagazineSize)
+                BallsLoaded = MagazineSize;
             else
                 BallsLoaded = balls;
         }

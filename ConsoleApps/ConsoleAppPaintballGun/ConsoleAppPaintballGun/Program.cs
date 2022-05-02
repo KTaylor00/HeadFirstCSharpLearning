@@ -6,7 +6,7 @@ namespace ConsoleAppPaintballGun
     {
         static void Main(string[] args)
         {
-            PaintballGun gun = new PaintballGun();
+            PaintballGun gun = new();
             while (true)
             {
                 Console.WriteLine($"{gun.Balls} balls, {gun.BallsLoaded} loaded");
@@ -20,7 +20,7 @@ namespace ConsoleAppPaintballGun
                 else if (key == 'r')
                     gun.Reload();
                 else if (key == '+')
-                    gun.Balls += PaintballGun.MAGAZINE_SIZE;
+                    gun.Balls += gun.MagazineSize;
                 else if (key == 'q')
                     return;
             }
