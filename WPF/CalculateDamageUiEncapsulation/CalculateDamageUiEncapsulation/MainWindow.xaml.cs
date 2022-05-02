@@ -20,7 +20,6 @@ namespace CalculateDamageUiEncapsulation
     /// </summary>
     public partial class MainWindow : Window
     {
-
         Random random = new Random();
         SwordDamage swordDamage;
 
@@ -28,7 +27,6 @@ namespace CalculateDamageUiEncapsulation
         {
             InitializeComponent();
             swordDamage = new SwordDamage(random.Next(1, 7) + random.Next(1, 7) + random.Next(1, 7));
-            DisplayDamage();
         }
 
         public void RollDice()
