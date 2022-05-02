@@ -15,6 +15,14 @@ namespace ConsoleAppPaintballGun
 
         public bool IsEmpty() => BallsLoaded == 0;
 
+        public PaintballGun(int balls, int magazineSize, bool loaded)
+        {
+            this.balls = balls;
+            MagazineSize = magazineSize;
+            if (!loaded)
+                Reload();
+        }
+
         public int Balls
         {
             get { return balls; }

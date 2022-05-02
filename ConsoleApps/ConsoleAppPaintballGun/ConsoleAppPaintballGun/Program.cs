@@ -6,7 +6,13 @@ namespace ConsoleAppPaintballGun
     {
         static void Main(string[] args)
         {
-            PaintballGun gun = new();
+            int numberOfBalls = ReadInt(20, "Number of balls");
+            int magazineSize = ReadInt(16, "Magazine size");
+
+            Console.Write($"Loaded [false]: ");
+            bool.TryParse(Console.ReadLine(), out bool isLoaded);
+
+            PaintballGun gun = new(numberOfBalls, magazineSize, isLoaded);
             while (true)
             {
                 Console.WriteLine($"{gun.Balls} balls, {gun.BallsLoaded} loaded");
@@ -23,6 +29,22 @@ namespace ConsoleAppPaintballGun
                     gun.Balls += gun.MagazineSize;
                 else if (key == 'q')
                     return;
+            }
+        }
+
+        private static int ReadInt(int lastUsedValue, string prompt)
+        {
+            Console.Write($"{prompt} [{lastUsedValue}]: ");
+            string line = Console.ReadLine();
+            if (int.TryParse(line, out int value))
+            {
+                Console.WriteLine($"  using value " + value);
+                return value;
+            }
+            else
+            {
+                Console.WriteLine($"  using default value " + lastUsedValue);
+                return lastUsedValue;
             }
         }
     }
