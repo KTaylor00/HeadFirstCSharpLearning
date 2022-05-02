@@ -8,39 +8,67 @@ namespace ConsoleAppDamageCalculatorEncapsulation
 {
     internal class SwordDamage
     {
-        public const int BASE_DAMAGE = 3;
-        public const int FLAME_DAMAGE = 2;
+        private const int BASE_DAMAGE = 3;
+        private const int FLAME_DAMAGE = 2;
 
-        public int Roll;
-        public decimal MagicMultiplier = 1M;
-        public int FlamingDamage = 0;
-        public int Damage;
+        /// <summary>
+        /// Contains the calculated damage
+        /// </summary>
+        public int Damage { get; private set; }
+        private int roll;
+        private bool flaming;
+        private bool magic;
 
-        public void CalculateDamage()
+
+        /// <summary>
+        /// Sets or gets the 3d6 roll
+        /// </summary>
+        public int Roll
         {
-            Damage = (int)(Roll * MagicMultiplier) + BASE_DAMAGE + FlamingDamage;
+            get => roll;
+            set { roll = value; CalculateDamage(); }
+
         }
 
-        public void SetMagic(bool isMagic)
+        /// <summary>
+        /// True if the sword is flaming, otherwise false.
+        /// </summary>
+        public bool Flaming
         {
-            if (isMagic)
-            {
-                MagicMultiplier = 1.75M;
-            }
-            else
-            {
-                MagicMultiplier = 1M;
-            }
-            CalculateDamage();
+            get => flaming;
+            set { flaming = value; CalculateDamage(); }
         }
 
-        public void SetFlaming(bool isFlaming)
+        /// <summary>
+        /// True if the sword is magic, otherwise false.
+        /// </summary>
+        public bool Magic
         {
-            CalculateDamage();
-            if (isFlaming)
-            {
+            get => magic;
+            set { magic = value; CalculateDamage(); }
+        }
+
+        /// <summary>
+        /// Calculates damage based on the current properties.
+        /// </summary>
+        private void CalculateDamage()
+        {
+            decimal magicMultiplier = 1M;
+            Damage = (int)(Roll * magicMultiplier) + BASE_DAMAGE;
+            if (flaming)
                 Damage += FLAME_DAMAGE;
-            }
         }
+
+        /// <summary>
+        /// The constructor calculates damage based on default Magic and Flaming values and a starting 3d6 roll.
+        /// </summary>
+        /// <param name="roll">starting 3d6 roll</param>
+        public SwordDamage(int roll)
+        {
+            this.roll = roll;
+            CalculateDamage();
+        }
+
+
     }
 }
