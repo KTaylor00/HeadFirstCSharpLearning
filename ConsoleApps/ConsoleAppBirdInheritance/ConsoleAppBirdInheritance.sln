@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppBirdInheritance", "ConsoleAppBirdInheritance\ConsoleAppBirdInheritance.csproj", "{FD800EB0-07A7-4328-BE47-BCA268413266}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD800EB0-07A7-4328-BE47-BCA268413266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD800EB0-07A7-4328-BE47-BCA268413266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD800EB0-07A7-4328-BE47-BCA268413266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD800EB0-07A7-4328-BE47-BCA268413266}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {253185FD-B619-466D-A64C-94EF580CD63A}
+	EndGlobalSection
+EndGlobal
