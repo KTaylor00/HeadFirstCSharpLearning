@@ -8,9 +8,9 @@ namespace ConsoleAppDamageCalculatorInheritance
 {
     internal class ArrowDamage
     {
-        private const decimal BASE_MULTIPLIER = 0.35M;
+        private const decimal BASE_MULTIPLIER = 1M;
         private const decimal MAGIC_MULTIPLIER = 2.5M;
-        private const decimal FLAME_DAMAGE = 1.25M;
+        private const decimal FLAME_DAMAGE = 1.75M;
 
         /// <summary>
         /// Contains the calculated damage
@@ -59,6 +59,8 @@ namespace ConsoleAppDamageCalculatorInheritance
                 baseDamage *= MAGIC_MULTIPLIER;
             if (Flaming)
                 Damage = (int)Math.Ceiling(baseDamage + FLAME_DAMAGE);
+            else
+                Damage = (int)Math.Ceiling(baseDamage);
         }
 
         /// <summary>
