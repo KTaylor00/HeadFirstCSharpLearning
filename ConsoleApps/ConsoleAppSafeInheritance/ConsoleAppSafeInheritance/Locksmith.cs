@@ -17,7 +17,7 @@ namespace ConsoleAppSafeInheritance
 
         public string Combination { private get; set; }
 
-        protected void ReturnContents(string safeContents, SafeOwner owner)
+        protected virtual void ReturnContents(string safeContents, SafeOwner owner)
         {
             owner.RecieveContents(safeContents);
         }
