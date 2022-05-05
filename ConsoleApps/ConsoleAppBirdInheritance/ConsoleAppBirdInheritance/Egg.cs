@@ -19,7 +19,7 @@ namespace ConsoleAppBirdInheritance
 
         public string Description
         {
-            get { return $"A {Size:0.0}cm {Colour} egg\n"; }
+            get { return $"A {Size:0.0}cm {Colour} egg"; }
         }
     }
 }

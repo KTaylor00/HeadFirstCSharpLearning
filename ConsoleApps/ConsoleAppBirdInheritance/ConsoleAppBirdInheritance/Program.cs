@@ -19,13 +19,27 @@ namespace ConsoleAppBirdInheritance
                     return;
 
                 Console.Write("\nHow many eggs should it lay? ");
-                if (!int.TryParse(Console.ReadLine(), out int numberOfEggs))
-                    return;
-                Egg[] eggs = bird.LayEggs(numberOfEggs);
-                foreach (Egg egg in eggs)
+                if (int.TryParse(Console.ReadLine(), out int numberOfEggs))
                 {
-                    Console.Write(egg.Description);
+                    if (key == 'P' && numberOfEggs > 2)
+                    {
+                        Console.WriteLine("Pigeons only lay 1-2 eggs");
+                    }
+                    else
+                    {
+                        Egg[] eggs = bird.LayEggs(numberOfEggs);
+                        foreach (Egg egg in eggs)
+                        {
+                            Console.WriteLine(egg.Description);
+                        }
+                    }
+
                 }
+                else
+                {
+                    Console.WriteLine("\nPlease enter an amount in numbers");
+                }
+
             }
         }
     }
