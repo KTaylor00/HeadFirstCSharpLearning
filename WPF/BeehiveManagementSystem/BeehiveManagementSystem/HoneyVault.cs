@@ -10,57 +10,54 @@ namespace BeehiveManagementSystem
     {
         private const float NECTAR_CONVERSION_RATIO = .19f;
         private const float LOW_LEVEL_WARNING = 10f;
+        private static float honey = 25f;
+        private static float nectar = 100f;
 
         public static string StatusReport
         {
             get
             {
-                string report = $"Vault report:\n{honey} units of honey\n{nectar} units of nectar";
+                string report = $"{honey} units of honey\n{nectar} units of nectar\n";
 
+                string warning = "";
                 if (honey < LOW_LEVEL_WARNING)
-                {
-                    return "LOW HONEY - ADD A HONEY MANUFACTURER";
-                }
+                    warning += "LOW HONEY - ADD A HONEY MANUFACTURER\n";
+
 
                 if (nectar < LOW_LEVEL_WARNING)
-                {
-                    return "LOW NECTAR - ADD A NECTAR COLLECTOR";
-                }
+                    warning += "LOW NECTAR - ADD A NECTAR COLLECTOR\n";
 
-                return report;
+                return report + warning;
             }
         }
-        private static float honey = 25f;
-        private static float nectar = 100f;
 
-        public static float ConvertNectarToHoney(float amount)
+        public static void ConvertNectarToHoney(float amount)
         {
-            nectar -= amount;
-            honey += amount * NECTAR_CONVERSION_RATIO;
-
-            if (amount < nectar)
+            float nectarToConvert = amount;
+            if (nectarToConvert > nectar)
             {
-                nectar = honey;
+                nectarToConvert = nectar;
             }
-            return amount;
+
+            nectar -= nectarToConvert;
+            honey += nectarToConvert * NECTAR_CONVERSION_RATIO;
         }
 
         public static bool ConsumeHoney(float amount)
         {
-            if (amount > honey)
+            if (honey >= amount)
             {
                 honey -= amount;
                 return true;
             }
-            else
-                return false;
+            return false;
         }
 
         public static float CollectNectar(float amount)
         {
-            if (amount > 0)
+            if (amount > 0f)
             {
-                honey += amount;
+                nectar += amount;
             }
             return amount;
         }
