@@ -28,6 +28,11 @@ namespace BeehiveManagementSystem
             statusReport.Text = queen.StatusReport;
         }
 
+        /// <summary>
+        /// Passes text from the selected ComboBox item directly to Queen.AssignBee.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AssignJob_Click(object sender, RoutedEventArgs e)
         {
             queen.AssignBee(jobSelector.Text);

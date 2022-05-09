@@ -19,6 +19,10 @@ namespace BeehiveManagementSystem
 
         private Bee[] workers = new Bee[0];
 
+        /// <summary>
+        /// Resizes the array and adds a Bee Object to the end.
+        /// </summary>
+        /// <param name="worker">Takes in a Bee object(worker)</param>
         private void AddWorker(Bee worker)
         {
             if (unassignedWorkers >= 1)
@@ -77,6 +81,11 @@ namespace BeehiveManagementSystem
             StatusReport = $"Vault Report:\n{HoneyVault.StatusReport}\nEgg Count: {eggs:0.0}\nUnassigned workers: {unassignedWorkers:0}\n{WorkerStatus("Nectar Collector")}\n{WorkerStatus("Honey Manufacturer")}\n{WorkerStatus("Egg Care")} \nTOTAL WORKERS: {workers.Length}";
         }
 
+        /// <summary>
+        /// Uses a foreach loop to count the number of bees in the workers array that match a specific job. Adds an s if there are more than one bee.
+        /// </summary>
+        /// <param name="job">takes a string parameter of job</param>
+        /// <returns>Returns a string</returns>
         private string WorkerStatus(string job)
         {
             int count = 0;

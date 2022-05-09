@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace BeehiveManagementSystem
 {
+    /// <summary>
+    /// Converts nectar to honey.
+    /// </summary>
     internal class HoneyManufacturer : Bee
     {
+        /// <summary>
+        /// Determines how much nectar is collected and how much is converted to honey each shift.
+        /// </summary>
         private const float NECTAR_PROCESSED_PER_SHIFT = 33.15f;
 
         public override float CostPerShift

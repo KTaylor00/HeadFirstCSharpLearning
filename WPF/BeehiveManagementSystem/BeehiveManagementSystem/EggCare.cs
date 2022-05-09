@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace BeehiveManagementSystem
 {
+    /// <summary>
+    /// Uses a reference to the Queen object to call her CareForEggs method to turn eggs into workers.
+    /// </summary>
     internal class EggCare : Bee
     {
         private const float CARE_PROGRESS_PER_SHIFT = 0.15f;

@@ -8,11 +8,17 @@ namespace BeehiveManagementSystem
 {
     internal static class HoneyVault
     {
+        /// <summary>
+        /// This is very important as it adds honey to the vault, the ratio can effect the amount of honey being added to the vault.
+        /// </summary>
         private const float NECTAR_CONVERSION_RATIO = .19f;
         private const float LOW_LEVEL_WARNING = 10f;
         private static float honey = 25f;
         private static float nectar = 100f;
 
+        /// <summary>
+        /// Prints a report of the honey and nectar as well as gives a low level warning.
+        /// </summary>
         public static string StatusReport
         {
             get
@@ -31,6 +37,10 @@ namespace BeehiveManagementSystem
             }
         }
 
+        /// <summary>
+        /// Reduces the nectar and increases the honey.
+        /// </summary>
+        /// <param name="amount">takes a float amount</param>
         public static void ConvertNectarToHoney(float amount)
         {
             float nectarToConvert = amount;
@@ -43,6 +53,11 @@ namespace BeehiveManagementSystem
             honey += nectarToConvert * NECTAR_CONVERSION_RATIO;
         }
 
+        /// <summary>
+        /// The amount of honey a bee consumes per shift.
+        /// </summary>
+        /// <param name="amount">takes a float amount</param>
+        /// <returns>Returns true if there is enough honey, otherwise it returns false.</returns>
         public static bool ConsumeHoney(float amount)
         {
             if (honey >= amount)
@@ -53,13 +68,16 @@ namespace BeehiveManagementSystem
             return false;
         }
 
-        public static float CollectNectar(float amount)
+        /// <summary>
+        /// Takes an amount and then adds that amount to the nectar.
+        /// </summary>
+        /// <param name="amount">float parameter</param>
+        public static void CollectNectar(float amount)
         {
             if (amount > 0f)
             {
                 nectar += amount;
             }
-            return amount;
         }
     }
 }
