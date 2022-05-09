@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace BeehiveManagementSystem
 {
-    internal class Bee
+    abstract class Bee
     {
         public string Job { get; private set; }
-        public virtual float CostPerShift { get; }
+        public abstract float CostPerShift { get; }
 
         /// <summary>
         /// Used to set the read-only Job property
@@ -28,6 +28,6 @@ namespace BeehiveManagementSystem
             }
         }
 
-        protected virtual void DoJob() { }
+        protected abstract void DoJob();
     }
 }
