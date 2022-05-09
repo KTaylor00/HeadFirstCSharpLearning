@@ -52,10 +52,5 @@ namespace ConsoleAppDamageCalculatorInheritance
         {
             return Random.Next(1, 7) * numberOfRolls;
         }
-
-        private static void Damage()
-        {
-
-        }
     }
 }

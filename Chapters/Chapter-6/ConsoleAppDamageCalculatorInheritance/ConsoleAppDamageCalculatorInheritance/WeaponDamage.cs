@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppDamageCalculatorInheritance
 {
-    internal class WeaponDamage
+    abstract class WeaponDamage
     {
         /// <summary>
         /// Contains the calculated damage
@@ -47,7 +47,7 @@ namespace ConsoleAppDamageCalculatorInheritance
         /// <summary>
         /// Calculates damage based on the current properties.
         /// </summary>
-        protected virtual void CalculateDamage() { Console.WriteLine("This statement will never get called."); }
+        protected abstract void CalculateDamage();
 
         /// <summary>
         /// The constructor calculates damage based on default Magic and Flaming values and a starting 3d6 roll.
