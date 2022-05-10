@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppAnimals
 {
-    internal class Wolf : Canine
+    internal class Wolf : Canine, IPackHunter
     {
         public Wolf(bool belongsToPack)
         {
