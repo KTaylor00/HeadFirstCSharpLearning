@@ -6,7 +6,26 @@ namespace ConsoleAppAnimals
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Animal[] animals =
+            {
+                new Wolf(false),
+                new Hippo(),
+                new Wolf(true),
+                new Wolf(false),
+                new Hippo()
+            };
+
+            foreach (Animal animal in animals)
+            {
+                animal.MakeNoise();
+                if (animal is Hippo hippo)
+                    hippo.Swim();
+
+                if (animal is Wolf wolf)
+                    wolf.HuntInPack();
+
+                Console.WriteLine();
+            }
         }
     }
 }
