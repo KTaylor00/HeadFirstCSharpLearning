@@ -6,8 +6,12 @@ namespace ConsoleAppClowns
     {
         static void Main(string[] args)
         {
+            IClown.CarCapacity = 18;
+            Console.WriteLine(IClown.ClownCarDescription());
+
             IClown fingersTheClown = new ScaryScary(14, "big red nose");
             fingersTheClown.Honk();
+
             // How I did it via the IDE prompt
             /*IScaryClown iScaryClownReference = (IScaryClown)fingersTheClown;
             iScaryClownReference.ScareLittleChildren();*/
@@ -15,10 +19,8 @@ namespace ConsoleAppClowns
             // How the book said it should be done
             if (fingersTheClown is IScaryClown iScaryClownReference)
             {
-                iScaryClownReference.ScareLittleChildren();
+                iScaryClownReference.ScareAdults();
             }
-
-            // Not sure which approach is better?
         }
     }
 }
