@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BeehiveManagementSystem
 {
-    internal class Queen : Bee
+    internal class Queen : Bee, INotifyPropertyChanged
     {
         public string StatusReport { get; private set; }
         public override float CostPerShift { get { return 2.15f; } }
@@ -18,6 +19,13 @@ namespace BeehiveManagementSystem
         private float unassignedWorkers = 3;
 
         private IWorker[] workers = new IWorker[0];
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         /// <summary>
         /// Resizes the array and adds a Bee Object to the end.
@@ -79,6 +87,7 @@ namespace BeehiveManagementSystem
         private void UpdateStatusReport()
         {
             StatusReport = $"Vault Report:\n{HoneyVault.StatusReport}\nEgg Count: {eggs:0.0}\nUnassigned workers: {unassignedWorkers:0}\n{WorkerStatus("Nectar Collector")}\n{WorkerStatus("Honey Manufacturer")}\n{WorkerStatus("Egg Care")} \nTOTAL WORKERS: {workers.Length}";
+            OnPropertyChanged("StatusReport");
         }
 
         /// <summary>
