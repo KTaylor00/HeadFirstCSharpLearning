@@ -20,22 +20,10 @@ namespace ConsoleAppCards
 
             // All the above code can be simplified to this:
             /*Card card = new Card((Values)random.Next(1, 14), (Suits)random.Next(4));
-            Console.WriteLine(card.Name);*/
+            Console.WriteLine(card);*/
 
-            Console.Write("Press G to generate a random card: ");
-            while (true)
-            {
-                char key = Console.ReadKey().KeyChar;
-
-                if (key == 'G' || key == 'g')
-                {
-                    Card card = new Card((Values)random.Next(1, 14), (Suits)random.Next(4));
-                    Console.WriteLine(card.Name);
-                }
-                else
-                    return;
-            }
-
+            Deck deck = new Deck();
+            deck.PrintCards();
         }
     }
 }
