@@ -10,7 +10,7 @@ namespace ConsoleAppCards
     {
         public Suits Suit { get; private set; }
         public Values Value { get; private set; }
-        public string Name { get { return $"{Value} of {Suit}"; } }
+        public string Name { get { return $"\n\n{Value} of {Suit}\n"; } }
 
         public Card(Values value, Suits suit)
         {
