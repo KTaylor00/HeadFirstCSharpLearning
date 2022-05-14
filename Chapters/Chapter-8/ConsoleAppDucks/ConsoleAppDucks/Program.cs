@@ -16,7 +16,27 @@ namespace ConsoleAppDucks
                 new Duck() { Kind = KindOfDuck.Mallard, Size = 14},
                 new Duck() { Kind = KindOfDuck.Loon, Size = 13},
             };
+            // Sorts the ducks by Size.
+            /*IComparer<Duck> sizeComparer = new DuckComparerBySize();
+            ducks.Sort(sizeComparer);
+            PrintDucks(ducks);*/
 
+            // Sorts the ducks by Kind.
+            /*IComparer<Duck> kindComparer = new DuckComparerByKind();
+            ducks.Sort(kindComparer);
+            PrintDucks(ducks);*/
+
+            // Looks at the public SortBy field to determine how to sort the ducks in the DuckComparer class.
+            DuckComparer comparer = new DuckComparer();
+
+            Console.WriteLine("\nSorting by kind then size\n");
+            comparer.SortBy = SortCriteria.KindThenSize;
+            ducks.Sort(comparer);
+            PrintDucks(ducks);
+
+            Console.WriteLine("\nSorting by size then kind\n");
+            comparer.SortBy = SortCriteria.SizeThenKind;
+            ducks.Sort(comparer);
             PrintDucks(ducks);
         }
 
