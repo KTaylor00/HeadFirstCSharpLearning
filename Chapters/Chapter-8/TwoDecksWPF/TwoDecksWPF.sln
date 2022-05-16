@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoDecksWPF", "TwoDecksWPF\TwoDecksWPF.csproj", "{781DF1A3-90CB-409D-BEC0-E387EF43DE99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{781DF1A3-90CB-409D-BEC0-E387EF43DE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{781DF1A3-90CB-409D-BEC0-E387EF43DE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{781DF1A3-90CB-409D-BEC0-E387EF43DE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{781DF1A3-90CB-409D-BEC0-E387EF43DE99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4D2FF03-78CB-4BD6-A191-8440C34F82FA}
+	EndGlobalSection
+EndGlobal
