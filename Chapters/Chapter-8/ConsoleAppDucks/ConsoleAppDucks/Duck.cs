@@ -20,5 +20,7 @@ namespace ConsoleAppDucks
             else
                 return 0;
         }
+
+        public override string ToString() => $"{Size} inch {Kind}";
     }
 }

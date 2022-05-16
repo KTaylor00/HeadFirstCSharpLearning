@@ -17,5 +17,7 @@ namespace ConsoleAppJumbledCards
             this.Value = value;
             this.Suit = suit;
         }
+
+        public override string ToString() => Name;
     }
 }
