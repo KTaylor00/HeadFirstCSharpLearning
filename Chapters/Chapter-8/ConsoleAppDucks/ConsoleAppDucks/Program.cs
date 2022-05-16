@@ -38,14 +38,28 @@ namespace ConsoleAppDucks
             comparer.SortBy = SortCriteria.SizeThenKind;
             ducks.Sort(comparer);
             PrintDucks(ducks);
+
+            ducks.GetEnumerator();
+
+
         }
 
         public static void PrintDucks(List<Duck> ducks)
         {
-            foreach (Duck duck in ducks)
+            /*foreach (Duck duck in ducks)
             {
                 Console.WriteLine(duck);
+            }*/
+
+            // This is what the above code is doing behind the scenes(some of the code)
+            IEnumerator<Duck> enumerator = ducks.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                Duck duck = enumerator.Current;
+                Console.WriteLine(duck);
             }
+            if (enumerator is IDisposable disposable)
+                disposable.Dispose();
         }
     }
 }
