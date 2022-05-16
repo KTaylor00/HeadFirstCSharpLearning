@@ -17,8 +17,8 @@ namespace ConsoleAppStackLIFO
             Console.WriteLine($"Peek() returned:\n{myStack.Peek()}");
 
             // Pop pulls the next item from the BOTTOM of the stack
-            Console.WriteLine($"The first Dequeue() returned:\n{myStack.Pop()}");
-            Console.WriteLine($"The second Dequeue() returned:\n{myStack.Pop()}");
+            Console.WriteLine($"The first Pop() returned:\n{myStack.Pop()}");
+            Console.WriteLine($"The second Pop() returned:\n{myStack.Pop()}");
 
             // Clear removes all of the items from the stack
             Console.WriteLine($"Count before Clear() returned:\n{myStack.Count}");
