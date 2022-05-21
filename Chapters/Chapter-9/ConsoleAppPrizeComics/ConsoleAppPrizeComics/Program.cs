@@ -1,6 +1,7 @@
 ﻿using ConsoleAppPrizeComics;
 
-IEnumerable<Comic> mostExpensive =
+//IEnumerable<Comic> mostExpensive =
+var mostExpensive =
     from comic in Comic.Catalog
     where Comic.Prices[comic.Issue] > 500
     orderby Comic.Prices[comic.Issue] descending
