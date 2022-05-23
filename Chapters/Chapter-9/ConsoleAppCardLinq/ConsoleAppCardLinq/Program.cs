@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ConsoleAppCardLinq
@@ -11,11 +12,7 @@ namespace ConsoleAppCardLinq
                 .Shuffle()
                 .Take(16);
 
-            var grouped =
-                from card in deck
-                group card by card.Suit into suitGroup
-                orderby suitGroup.Key descending
-                select suitGroup;
+            IOrderedEnumerable<IGrouping<Suits, Card>> grouped = Group(deck);
 
             foreach (var group in grouped)
             {
@@ -24,6 +21,14 @@ Count: {group.Count()}
 Min: {group.Min()} 
 Max: {group.Max()}");
             }
+        }
+
+        private static IOrderedEnumerable<IGrouping<Suits, Card>> Group(IEnumerable<Card> deck)
+        {
+            return from card in deck
+                   group card by card.Suit into suitGroup
+                   orderby suitGroup.Key descending
+                   select suitGroup;
         }
     }
 }
